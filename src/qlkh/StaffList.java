@@ -97,6 +97,7 @@ public class StaffList {
         return arr;
     }
 
+    //read address data from file
     public static Staff[] addStaffFromFile(Staff staff,Staff[] arr){
         int n = arr.length;
         arr = Arrays.copyOf(arr, n+1);
@@ -137,7 +138,7 @@ public class StaffList {
     public void adjustStaff(String staffID){
         for (Staff staff : list){
             if(staff.staffID.equals(staffID)){
-
+                staff.input();
             }
             else
                 System.out.println("Couldn't find staff");

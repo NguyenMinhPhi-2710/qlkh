@@ -55,14 +55,14 @@ public class Staff {
         position = sc.nextLine();
     }
     public void input(){
-        //System.out.print("Nhap ma nhan vien: ");
+        System.out.print("Nhap ma nhan vien: ");
         setStaffID();
-        // System.out.print("Nhap ten nhan vien: ");
+         System.out.print("Nhap ten nhan vien: ");
         setStaffName();
         setAddress();
-        //System.out.print("Nhap so dien thoai:");
+        System.out.print("Nhap so dien thoai:");
         setPhoneNumber();
-        //ystem.out.print("Nhap chuc vu: ");
+        System.out.print("Nhap chuc vu: ");
         setPosition();
     }
     public String toString(){
