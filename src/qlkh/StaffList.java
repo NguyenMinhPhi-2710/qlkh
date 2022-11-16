@@ -134,7 +134,34 @@ public class StaffList {
         }
     }
 
-    //Uncompleted
+    // override new data to file
+    // MUST give this warning: "You MUST choose "Submit change & exit"(press _) to save all your changes"
+    public void updataFile(File staffFile, File addressFile){
+        BufferedWriter bw1 = null;
+        BufferedWriter bw2 = null;
+        try {
+            bw1 = new BufferedWriter(new FileWriter(staffFile,false));
+            bw2 = new BufferedWriter(new FileWriter(addressFile,false));
+            for(Staff staff : list){
+                bw1.write(staff.staffID +",");
+                bw1.write(staff.staffName +",");
+                bw1.write(staff.phoneNumber +",");
+                bw1.write(staff.position +"\n");
+                bw2.write(staff.address +"\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Cannot update data!!");
+        } finally{
+            try {
+                bw1.close();
+                bw2.close();
+            } catch (Exception e) {
+                System.out.println("Cannot close the stream!!");
+            }
+        }
+    }
+
+    // change staff information
     public void adjustStaff(String staffID){
         for (Staff staff : list){
             if(staff.staffID.equals(staffID)){
