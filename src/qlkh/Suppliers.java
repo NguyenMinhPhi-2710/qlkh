@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Suppliers {
     Scanner sc = new Scanner(System.in);
-    private String supplierID;
-    private String supplierName;
-    private Address supplierAddress;
-    private String supplierPhoneNumber;
+    protected String supplierID;
+    protected String supplierName;
+    protected Address supplierAddress;
+    protected String supplierPhoneNumber;
 
     public Suppliers(){
         supplierID=null;
@@ -44,6 +44,12 @@ public class Suppliers {
     }
     public void setSupplierPhoneNumber(){
         supplierPhoneNumber=sc.nextLine();
+    }
+    public void input(){
+        setSupplierID();
+        setSupplierName();
+        setSupplierAddress();
+        setSupplierPhoneNumber();
     }
     public String toString(){
         return supplierID +" " +supplierName +" " +supplierAddress +" " +supplierPhoneNumber;

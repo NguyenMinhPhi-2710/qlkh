@@ -3,10 +3,10 @@ package qlkh;
 import java.util.Scanner;
 public class Distributors {
     Scanner sc = new Scanner(System.in);
-    private String distributorID;
-    private String distributorName;
-    private Address distributorAddress;
-    private String distributorPhoneNumber;
+    protected String distributorID;
+    protected String distributorName;
+    protected Address distributorAddress;
+    protected String distributorPhoneNumber;
 
     public Distributors(){
         distributorID=null;
@@ -20,29 +20,35 @@ public class Distributors {
         this.distributorAddress=distributorAddress;
         this.distributorPhoneNumber=distributorPhoneNumber;
     }
-    public String getSupplierID(){
+    public String getDistributorID(){
         return distributorID;
     }
-    public void setSupplierID(){
+    public void setDistributorID(){
         distributorID=sc.nextLine();
     }
-    public String getSupplierName(){
+    public String getDistributorName(){
         return distributorName;
     }
-    public void setSupplierName(){
+    public void setDistributorName(){
         distributorName=sc.nextLine();
     }
-    public Address getSupplierAddress(){
+    public Address getDistributorAddress(){
         return distributorAddress;
     }
-    public void setSupplierAddress(){
+    public void setDistributorAddress(){
         distributorAddress.input();
     }
-    public String getSupplierPhoneNumber(){
+    public String getDistributorPhoneNumber(){
         return distributorPhoneNumber;
     }
-    public void setSupplierPhoneNumber(){
+    public void setDistributorPhoneNumber(){
         distributorPhoneNumber=sc.nextLine();
+    }
+    public void input(){
+        setDistributorID();
+        setDistributorName();
+        setDistributorAddress();
+        setDistributorPhoneNumber();
     }
     public String toString(){
         return distributorID +" " +distributorName +" " +distributorAddress +" " +distributorPhoneNumber;

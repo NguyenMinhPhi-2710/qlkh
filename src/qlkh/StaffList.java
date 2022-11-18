@@ -90,6 +90,7 @@ public class StaffList {
         }
     }
 
+    // read address date from file
     public static Address[] addAddressFromFile(Address address,Address[] arr){
         int n = arr.length;
         arr = Arrays.copyOf(arr, n+1);
@@ -97,7 +98,7 @@ public class StaffList {
         return arr;
     }
 
-    //read address data from file
+    //read staff data from file
     public static Staff[] addStaffFromFile(Staff staff,Staff[] arr){
         int n = arr.length;
         arr = Arrays.copyOf(arr, n+1);
@@ -126,10 +127,10 @@ public class StaffList {
                     try {
                         proxyList[k++]=list[i];
                     } catch (ArrayIndexOutOfBoundsException e) {
-                        System.out.println("Cannot remove the account!!");
+                        System.out.println("Cannot remove this staff!!");
                     }
             }
-            System.out.println("Account removal has been performed!!");
+            System.out.println("Staff removal has been performed!!");
             list = proxyList;
         }
     }
@@ -168,7 +169,7 @@ public class StaffList {
                 staff.input();
             }
             else
-                System.out.println("Couldn't find staff");
+                System.out.println("Couldn't find staff.");
         }
     }
 
@@ -179,7 +180,7 @@ public class StaffList {
                 System.out.println(staff);
             }
             else
-                System.out.println("Couldn't find staff");
+                System.out.println("Couldn't find staff.");
         }
     }
 
