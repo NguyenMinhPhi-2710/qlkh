@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class Staff {
     Scanner sc = new Scanner(System.in);
-    protected String staffID;
-    protected String staffName;
-    protected Address address;
-    protected String phoneNumber;
-    protected String position;
+    private String staffID;
+    private String staffName;
+    private Address address;
+    private String phoneNumber;
+    private String position;
 
     public Staff(){
         staffID=null;

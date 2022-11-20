@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Suppliers {
     Scanner sc = new Scanner(System.in);
-    protected String supplierID;
-    protected String supplierName;
-    protected Address supplierAddress;
-    protected String supplierPhoneNumber;
+    private String supplierID;
+    private String supplierName;
+    private Address supplierAddress;
+    private String supplierPhoneNumber;
 
     public Suppliers(){
         supplierID=null;

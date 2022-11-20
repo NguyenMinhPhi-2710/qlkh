@@ -3,10 +3,10 @@ package qlkh;
 import java.util.Scanner;
 public class Distributors {
     Scanner sc = new Scanner(System.in);
-    protected String distributorID;
-    protected String distributorName;
-    protected Address distributorAddress;
-    protected String distributorPhoneNumber;
+    private String distributorID;
+    private String distributorName;
+    private Address distributorAddress;
+    private String distributorPhoneNumber;
 
     public Distributors(){
         distributorID=null;

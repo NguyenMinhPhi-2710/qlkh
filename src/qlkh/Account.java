@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 public class Account {
     Scanner sc = new Scanner(System.in);
-    protected String accountName;
-    protected String password;
-    protected String staffID;
-    protected String roleID;
+    private String accountName;
+    private String password;
+    private String staffID;
+    private String roleID;
 
     public Account(){
         accountName= null;
@@ -40,11 +40,20 @@ public class Account {
     public void setPassword(){
         password = sc.nextLine();
     }
+    public void setPassword(String password){
+        this.password = password;
+    }
     public String getStaffID(){
         return staffID;
     }
     public void setStaffID(){
         staffID = sc.nextLine();
+    }
+    public String getRoleID(){
+        return roleID;
+    }
+    public void setRoleID(String roleID){
+        this.roleID = roleID;
     }
     public void input(){
         setAccountName();

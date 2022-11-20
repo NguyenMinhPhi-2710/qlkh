@@ -13,10 +13,10 @@ public class StaffAccount extends Account {
     }
     @Override
     public void addRoleID(){
-        roleID="staff";
+        setRoleID("staff");
     }
     @Override
     public String toString(){
-        return accountName +" " +password +" " +staffID +" " +roleID; 
+        return getAccountName() +" " +getPassword() +" " +getStaffID() +" " +getRoleID(); 
     }
 }

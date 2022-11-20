@@ -92,10 +92,10 @@ public class AccountList {
         try {
             bw = new BufferedWriter(new FileWriter(file,false));
             for(Account account : list){
-                bw.write(account.accountName +",");
-                bw.write(account.password +",");
-                bw.write(account.staffID +",");
-                bw.write(account.roleID +"\n");
+                bw.write(account.getAccountName() +",");
+                bw.write(account.getPassword() +",");
+                bw.write(account.getStaffID() +",");
+                bw.write(account.getRoleID() +"\n");
             }
         } catch (IOException e) {
             System.out.println("Cannot update data!!");
@@ -112,8 +112,8 @@ public class AccountList {
     // it returns false when user give incorrect account name or password
     public boolean checkSignIn(Account account){
         for (Account a : list){
-            if (account.accountName.equals(a.accountName)){
-                if (account.password.equals(a.password)){
+            if (account.getAccountName().equals(a.getAccountName())){
+                if (account.getPassword().equals(a.getPassword())){
                     System.out.println("Sign in successfully!!");
                     return true;
                 }
@@ -143,7 +143,7 @@ public class AccountList {
         else{
             Account[] proxyList = new Account[list.length-1];
             for (int i = 0, k = 0; i < list.length; i++){
-                if (list[i].accountName.equals(accountName))
+                if (list[i].getAccountName().equals(accountName))
                     // ignore the account that need to be deleted
                     continue;
                 else
@@ -161,9 +161,9 @@ public class AccountList {
     // change account's password
     public void changePassword(String accountName,String oldPassword, String newPassword){
         for (int i=0;i<list.length;i++){
-            if (list[i].accountName.equals(accountName)){
-                if (list[i].password.equals(oldPassword)){
-                    list[i].password= newPassword;
+            if (list[i].getAccountName().equals(accountName)){
+                if (list[i].getPassword().equals(oldPassword)){
+                    list[i].setPassword(newPassword);
                     System.out.println("Password change has been performed!!\n***Don't forget your new password");
                     break;
                 }
@@ -178,7 +178,7 @@ public class AccountList {
     // find account in list, ADMIN ACCESS ONLY
     public void findAccount(String accountName){
         for (Account account : list){
-            if(account.accountName.equals(accountName)){
+            if(account.getAccountName().equals(accountName)){
                 System.out.println("Account found!!");
                 System.out.println(account);
                 break;
@@ -191,12 +191,12 @@ public class AccountList {
     // recheck the account type and recreate the account
     public Account giveRoleID(Account account, String roleID){
         if (roleID.equals("admin")){
-            account = new AdminAccount(account.accountName,account.password,account.staffID);
+            account = new AdminAccount(account.getAccountName(),account.getPassword(),account.getStaffID());
             account.addRoleID();
             return account;
         }
         else{
-            account = new StaffAccount(account.accountName,account.password,account.staffID);
+            account = new StaffAccount(account.getAccountName(),account.getPassword(),account.getStaffID());
             account.addRoleID();
             return account;
         }
@@ -205,10 +205,10 @@ public class AccountList {
     // give the account in login class roleId to verify
     public Account giveLoginRoleID(Account account){
         for (Account a: list){
-            if (account.accountName.equals(a.accountName)){
+            if (account.getAccountName().equals(a.getAccountName())){
                 account = new Account(a);
                 System.out.println(account);
-                account = giveRoleID(account, a.roleID);
+                account = giveRoleID(account, a.getRoleID());
                 return account;
             }
         }

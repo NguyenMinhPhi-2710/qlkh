@@ -120,7 +120,7 @@ public class StaffList {
         else{
             Staff[] proxyList = new Staff[list.length-1];
             for (int i = 0, k = 0; i < list.length; i++){
-                if (list[i].staffName.equals(staffName))
+                if (list[i].getStaffName().equals(staffName))
                     // ignore the staff that need to be deleted
                     continue;
                 else
@@ -144,11 +144,11 @@ public class StaffList {
             bw1 = new BufferedWriter(new FileWriter(staffFile,false));
             bw2 = new BufferedWriter(new FileWriter(addressFile,false));
             for(Staff staff : list){
-                bw1.write(staff.staffID +",");
-                bw1.write(staff.staffName +",");
-                bw1.write(staff.phoneNumber +",");
-                bw1.write(staff.position +"\n");
-                bw2.write(staff.address +"\n");
+                bw1.write(staff.getStaffID() +",");
+                bw1.write(staff.getStaffName() +",");
+                bw1.write(staff.getPhoneNumber() +",");
+                bw1.write(staff.getPosition() +"\n");
+                bw2.write(staff.getAddress() +"\n");
             }
         } catch (IOException e) {
             System.out.println("Cannot update data!!");
@@ -165,7 +165,7 @@ public class StaffList {
     // change staff information
     public void adjustStaff(String staffID){
         for (Staff staff : list){
-            if(staff.staffID.equals(staffID)){
+            if(staff.getStaffID().equals(staffID)){
                 staff.input();
             }
             else
@@ -176,7 +176,7 @@ public class StaffList {
     // find staff
     public void findStaff(String staffID){
         for (Staff staff : list){
-            if(staff.staffID.equals(staffID)){
+            if(staff.getStaffID().equals(staffID)){
                 System.out.println(staff);
             }
             else

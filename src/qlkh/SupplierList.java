@@ -122,7 +122,7 @@ public class SupplierList {
         else{
             Suppliers[] proxyList = new Suppliers[list.length-1];
             for (int i = 0, k = 0; i < list.length; i++){
-                if (list[i].supplierName.equals(supplierName))
+                if (list[i].getSupplierName().equals(supplierName))
                     // ignore the supplier that need to be deleted
                     continue;
                 else
@@ -140,7 +140,7 @@ public class SupplierList {
     // change supplier information
     public void adjustSupplier(String supplierID){
         for (Suppliers supplier : list){
-            if(supplier.supplierID.equals(supplierID)){
+            if(supplier.getSupplierID().equals(supplierID)){
                 supplier.input();
             }
             else
@@ -151,7 +151,7 @@ public class SupplierList {
     // find supplier
     public void findSupplier(String supplierID){
         for (Suppliers supplier : list){
-            if(supplier.supplierID.equals(supplierID)){
+            if(supplier.getSupplierID().equals(supplierID)){
                 System.out.println(supplier);
             }
             else
@@ -178,10 +178,10 @@ public class SupplierList {
             bw1 = new BufferedWriter(new FileWriter(suppliersFile,false));
             bw2 = new BufferedWriter(new FileWriter(suppliersAddressFile,false));
             for(Suppliers supplier : list){
-                bw1.write(supplier.supplierID +",");
-                bw1.write(supplier.supplierName +",");
-                bw1.write(supplier.supplierPhoneNumber +"\n");
-                bw2.write(supplier.supplierAddress +"\n");
+                bw1.write(supplier.getSupplierID() +",");
+                bw1.write(supplier.getSupplierName() +",");
+                bw1.write(supplier.getSupplierPhoneNumber() +"\n");
+                bw2.write(supplier.getSupplierAddress() +"\n");
             }
         } catch (IOException e) {
             System.out.println("Cannot update data!!");

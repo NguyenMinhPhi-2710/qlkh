@@ -122,7 +122,7 @@ public class DistributorList {
         else{
             Distributors[] proxyList = new Distributors[list.length-1];
             for (int i = 0, k = 0; i < list.length; i++){
-                if (list[i].distributorName.equals(distributorName))
+                if (list[i].getDistributorName().equals(distributorName))
                     // ignore the distributor that need to be deleted
                     continue;
                 else
@@ -140,7 +140,7 @@ public class DistributorList {
     // change distributor information
     public void adjustDistributor(String distributorID){
         for (Distributors distributor : list){
-            if(distributor.distributorID.equals(distributorID)){
+            if(distributor.getDistributorAddress().equals(distributorID)){
                 distributor.input();
             }
             else
@@ -151,7 +151,7 @@ public class DistributorList {
     // find distributor
     public void findDistributor(String distributorID){
         for (Distributors distributor : list){
-            if(distributor.distributorID.equals(distributorID)){
+            if(distributor.getDistributorAddress().equals(distributorID)){
                 System.out.println(distributor);
             }
             else
@@ -178,10 +178,10 @@ public class DistributorList {
             bw1 = new BufferedWriter(new FileWriter(distributorsFile,false));
             bw2 = new BufferedWriter(new FileWriter(distributorsAddressFile,false));
             for(Distributors distributor : list){
-                bw1.write(distributor.distributorID +",");
-                bw1.write(distributor.distributorName +",");
-                bw1.write(distributor.distributorPhoneNumber +"\n");
-                bw2.write(distributor.distributorAddress +"\n");
+                bw1.write(distributor.getDistributorName() +",");
+                bw1.write(distributor.getDistributorName() +",");
+                bw1.write(distributor.getDistributorPhoneNumber() +"\n");
+                bw2.write(distributor.getDistributorAddress() +"\n");
             }
         } catch (IOException e) {
             System.out.println("Cannot update data!!");

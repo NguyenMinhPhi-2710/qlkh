@@ -12,10 +12,10 @@ public class AdminAccount extends Account {
     }
     @Override
     public String toString(){
-        return accountName +" " +password +" " +staffID +" " +roleID; 
+        return getAccountName() +" " +getPassword() +" " +getStaffID() +" " +getRoleID(); 
     }
     @Override
     public void addRoleID(){
-        roleID="admin";
+        setRoleID("admin");
     }
 }

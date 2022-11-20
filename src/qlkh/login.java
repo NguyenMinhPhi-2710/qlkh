@@ -13,7 +13,7 @@ import java.io.*;
 public class login {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
-        File file = new File("D:\\PROJECT\\java\\khohang\\src\\qlkh\\account.txt");
+        File file = new File("D:\\PROJECT\\java\\khohang\\src\\qlkh\\textfile\\account.txt");
 
         AccountList accountList = new AccountList();
         accountList.createList(file);
@@ -41,6 +41,7 @@ public class login {
 
         Account a1 = new Account("adasda", "adfasdfasdf", "adfasfasdfas");
         accountList.addAccount(a1);
+        accountList.updataFile(file);
         accountList.displayList();
     } 
 }
