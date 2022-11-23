@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 
 public class SupplierList {
-    private Suppliers[] list;
+    private static Suppliers[] list;
 
     public SupplierList(){
         list= null;
@@ -44,44 +44,46 @@ public class SupplierList {
             System.out.println("Cannot read the file, using alternative solution instead.");
 
             Address address = new Address(1,"Duong 1", "P1", "Q1", "TP Mo Mong");
-            Suppliers supplier = new Suppliers("s001", "ncc1", address, "01123");
+            Suppliers supplier = new Suppliers("s01", "ncc1", address, "01123");
             list=addSupplierFromFile(supplier, list);
 
             address = new Address(2,"Duong 2", "P2", "Q2", "TP Mo Mong");
-            supplier = new Suppliers("s002", "ncc2", address, "01234");
+            supplier = new Suppliers("s02", "ncc2", address, "01234");
             list=addSupplierFromFile(supplier, list);
 
             address = new Address(3,"Duong 3", "P3", "Q3", "TP Mo Mong");
-            supplier = new Suppliers("s003", "ncc3", address, "01345");
+            supplier = new Suppliers("s03", "ncc3", address, "01345");
             list=addSupplierFromFile(supplier, list);
 
             address = new Address(4,"Duong 4", "P4", "Q4", "TP Mo Mong");
-            supplier = new Suppliers("s004", "ncc4", address, "01456");
+            supplier = new Suppliers("s04", "ncc4", address, "01456");
             list=addSupplierFromFile(supplier, list);
 
             address = new Address(5,"Duong 5", "P5", "Q5", "TP Mo Mong");
-            supplier = new Suppliers("s005", "ncc5", address, "01567");
+            supplier = new Suppliers("s05", "ncc5", address, "01567");
             list=addSupplierFromFile(supplier, list);
 
             address = new Address(6,"Duong 6", "P6", "Q6", "TP Mo Mong");
-            supplier = new Suppliers("s006", "ncc6", address, "01678");
+            supplier = new Suppliers("s06", "ncc6", address, "01678");
             list=addSupplierFromFile(supplier, list);
 
             address = new Address(7,"Duong 7", "P7", "Q7", "TP Mo Mong");
-            supplier = new Suppliers("s007", "ncc7", address, "01789");
+            supplier = new Suppliers("s07", "ncc7", address, "01789");
             list=addSupplierFromFile(supplier, list);;
 
             address = new Address(8,"Duong 8", "P8", "Q8", "TP Mo Mong");
-            supplier = new Suppliers("s008", "ncc8", address, "01890");
+            supplier = new Suppliers("s08", "ncc8", address, "01890");
             list=addSupplierFromFile(supplier, list);
 
             address = new Address(9,"Duong 9", "P9", "Q9", "TP Mo Mong");
-            supplier = new Suppliers("s009", "ncc9", address, "01901");
+            supplier = new Suppliers("s09", "ncc9", address, "01901");
             list=addSupplierFromFile(supplier, list);
 
             address = new Address(10,"Duong 10", "P10", "Q10", "TP Mo Mong");
-            supplier = new Suppliers("s0010", "ncc10", address, "01902");
+            supplier = new Suppliers("s10", "ncc10", address, "01902");
             list=addSupplierFromFile(supplier, list);
+
+            updataFile(suppliersFile, suppliersAddressFile);
         }
         finally{
             try {
@@ -171,7 +173,7 @@ public class SupplierList {
 
     // override new data to file
     // MUST give this warning: "You MUST choose "Submit change & exit"(press _) to save all your changes"
-    public void updataFile(File suppliersFile,File suppliersAddressFile){
+    public static void updataFile(File suppliersFile,File suppliersAddressFile){
         BufferedWriter bw1 = null;
         BufferedWriter bw2 = null;
         try {

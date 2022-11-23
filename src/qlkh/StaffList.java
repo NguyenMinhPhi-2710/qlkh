@@ -2,7 +2,7 @@ package qlkh;
 import java.util.Arrays;
 import java.io.*;
 public class StaffList {
-    private Staff[] list;
+    private static Staff[] list;
 
     public StaffList(){
         list=null;
@@ -42,44 +42,46 @@ public class StaffList {
             System.out.println("Cannot read the file, using alternative solution instead.");
 
             Address address = new Address(1,"Duong 1", "P1", "Q1", "TP Mong Mo");
-            Staff staff = new Staff("a001", "Nguyen Van A", address, "0123", "Quan ly");
+            Staff staff = new Staff("staff1", "Nguyen Van A", address, "0123", "Quan ly");
             list=addStaffFromFile(staff, list);
 
             address = new Address(2,"Duong 2", "P2", "Q2", "TP Mong Mo");
-            staff = new Staff("a002", "Nguyen Van B", address, "0234", "Nhan vien");
+            staff = new Staff("staff2", "Nguyen Van B", address, "0234", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(3,"Duong 3", "P3", "Q3", "TP Mong Mo");
-            staff = new Staff("a003", "Nguyen Van C", address, "0345", "Nhan vien");
+            staff = new Staff("staff3", "Nguyen Van C", address, "0345", "Nhan vien");
             list=addStaffFromFile(staff, list);
             
             address = new Address(4,"Duong 4", "P4", "Q4", "TP Mong Mo");
-            staff = new Staff("a004", "Nguyen Van D", address, "0456", "Nhan vien");
+            staff = new Staff("staff4", "Nguyen Van D", address, "0456", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(5,"Duong 5", "P5", "Q5", "TP Mong Mo");
-            staff = new Staff("a005", "Nguyen Van E", address, "0567", "Nhan vien");
+            staff = new Staff("staff5", "Nguyen Van E", address, "0567", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(6,"Duong 6", "P6", "Q6", "TP Mong Mo");
-            staff = new Staff("a006", "Nguyen Van F", address, "0678", "Nhan vien");
+            staff = new Staff("staff6", "Nguyen Van F", address, "0678", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(7,"Duong 7", "P7", "Q7", "TP Mong Mo");
-            staff = new Staff("a007", "Nguyen Van G", address, "0789", "Nhan vien");
+            staff = new Staff("staff7", "Nguyen Van G", address, "0789", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(8,"Duong 8", "P8", "Q8", "TP Mong Mo");
-            staff = new Staff("a008", "Nguyen Van H", address, "0890", "Nhan vien");
+            staff = new Staff("staff8", "Nguyen Van H", address, "0890", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(9,"Duong 9", "P9", "Q9", "TP Mong Mo");
-            staff = new Staff("a009", "Nguyen Van I", address, "0901", "Nhan vien");
+            staff = new Staff("staff9", "Nguyen Van I", address, "0901", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(10,"Duong 10", "P10", "Q10", "TP Mong Mo");
-            staff = new Staff("a0010", "Nguyen Van J", address, "0902", "Nhan vien");
+            staff = new Staff("staff10", "Nguyen Van J", address, "0902", "Nhan vien");
             list=addStaffFromFile(staff, list);
+
+            updataFile(staffFile, addressFile);
         }
         finally{
             try {
@@ -137,7 +139,7 @@ public class StaffList {
 
     // override new data to file
     // MUST give this warning: "You MUST choose "Submit change & exit"(press _) to save all your changes"
-    public void updataFile(File staffFile, File addressFile){
+    public static void updataFile(File staffFile, File addressFile){
         BufferedWriter bw1 = null;
         BufferedWriter bw2 = null;
         try {

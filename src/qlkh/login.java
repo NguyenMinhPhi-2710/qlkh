@@ -13,7 +13,7 @@ import java.io.*;
 public class login {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
-        File file = new File("D:\\PROJECT\\java\\khohang\\src\\qlkh\\textfile\\account.txt");
+        File file = new File("account.txt");
 
         AccountList accountList = new AccountList();
         accountList.createList(file);
