@@ -1,13 +1,8 @@
 package qlkh;
-
 import java.io.*;
 /**
- * PositionID: A01 - Z99
- * ProductID: P01 - P99
- * InvoiceID: I01 - I99 / E01 - E99
- * StaffID: staff01 - staff99
- * SupplierID: S01 - S99
- * DistributorID: D01 - D99
+ * PositionID: A01 - Z99 ProductID: P01 - P99 InvoiceID: I01 - I99 / E01 - E99
+ * StaffID: staff01 - staff99 SupplierID: S01 - S99 DistributorID: D01 - D99
  * 
  * @author Lilly
  */
@@ -24,15 +19,18 @@ public class Main {
         accountList.createList(accountFile);
         staffList.createList(staffFile, staffAddressFile);
 
-        System.out.println("---HE THONG QUAN LY KHO HANG THIET BI DIEN TU---");
+        while(true){
+            Tools.cls();
+            System.out.println("---HE THONG QUAN LY KHO HANG THIET BI DIEN TU---");
 
-        Boolean loginCheck = login(accountList);
-        System.out.println(loginCheck);
-        if (Boolean.TRUE.equals(loginCheck)){
-            adminMenu(manager, accountList, staffList);
-        }
-        else{
-            staffMenu(manager, accountList, staffList);
+            Boolean loginCheck = login(accountList);
+            System.out.println(loginCheck);
+            if (Boolean.TRUE.equals(loginCheck)){
+                adminMenu(manager, accountList, staffList);
+            }
+            else{
+                staffMenu(manager, accountList, staffList);
+            }
         }
     }
 
@@ -75,7 +73,7 @@ public class Main {
         System.out.println("4. Thoat va luu\n");
         System.out.println("** WARNINGS: Phai chon \"Thoat va luu\" de luu cac thay doi ve nhan vien va tai khoan");
         String option = Tools.scan.nextLine();
-        while (!Tools.isInteger(option) || Integer.parseInt(option) < 1 || Integer.parseInt(option) > 4) {option = Tools.scan.nextLine();}
+        while (!Tools.isInteger(option) || Integer.parseInt(option) < 1 || Integer.parseInt(option) > 4) {System.out.println("Vui long nhap lai: ");option = Tools.scan.nextLine();}
         switch (Integer.parseInt(option)) {
             case 1: {
                 warehouseMenu(manager);
@@ -101,7 +99,7 @@ public class Main {
             case 4: {
                 accountList.updataFile(accountFile);
                 staffList.updataFile(staffFile, staffAddressFile);
-                System.exit(0);
+                return;
             }
         }
         adminMenu(manager, accountList, staffList);
@@ -115,7 +113,7 @@ public class Main {
         System.out.println("3. Thoat va luu\n");
         System.out.println("** WARNINGS: Phai chon \"Thoat va luu\" de luu cac thay doi ve nhan vien va tai khoan");
         String option = Tools.scan.nextLine();
-        while (!Tools.isInteger(option) || Integer.parseInt(option) < 1 || Integer.parseInt(option) > 3) {option = Tools.scan.nextLine();}
+        while (!Tools.isInteger(option) || Integer.parseInt(option) < 1 || Integer.parseInt(option) > 3) {System.out.println("Vui long nhap lai: ");option = Tools.scan.nextLine();}
         switch (Integer.parseInt(option)) {
             case 1: {
                 warehouseMenu(manager);
@@ -136,7 +134,7 @@ public class Main {
             }
             case 3: {
                 staffList.updataFile(staffFile, staffAddressFile);
-                System.exit(0);
+                return;
             }
         }
         staffMenu(manager, accountList, staffList);
@@ -158,14 +156,19 @@ public class Main {
 
         String option = Tools.scan.nextLine();
         while (!Tools.isInteger(option) || Integer.parseInt(option) < 1 || Integer.parseInt(option) > 10) {
-            option = Tools.scan.nextLine();
+            System.out.println("Vui long nhap lai: "); option = Tools.scan.nextLine();
         }
         switch (Integer.parseInt(option)) {
             case 1: {
                 System.out.println("--Nhap nhan vien moi");
                 Staff newStaff= new Staff();
                 newStaff.input();
-                staffList.addStaff(newStaff);
+                if (!staffList.checkStaff(newStaff.getStaffID())){
+                    System.out.println("Ma nhan vien bi trung, vui long tao lai nhan vien");
+                }
+                else{
+                    staffList.addStaff(newStaff);
+                }
                 Tools.continute();
                 break;
             }
@@ -205,8 +208,9 @@ public class Main {
             }
             case 7: {
                 System.out.println("--Them tai khoan nhan vien moi");
-                Account newAccount = new StaffAccount();
+                StaffAccount newAccount = new StaffAccount();
                 newAccount.input();
+                newAccount.addRoleID();
                 accountList.addAccount(newAccount);
                 Tools.continute();
                 break;

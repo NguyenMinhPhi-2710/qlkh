@@ -85,7 +85,8 @@ public class StaffList {
         }
         finally{
             try {
-                br.close();
+                if (br!=null)
+                    br.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -157,11 +158,13 @@ public class StaffList {
             System.out.println("Cannot update data!!");
         } finally{
             try {
-                bw1.close();
-                bw2.close();
+                if (bw1!=null && bw2!=null){
+                    bw1.close();
+                    bw2.close();
+                }
             } catch (Exception e) {
                 System.out.println("Cannot close the stream!!");
-            }
+            }   
         }
     }
 
@@ -188,7 +191,7 @@ public class StaffList {
         }
     }
 
-    // check staff whether it exists or not
+    // check staffID whether it exists or not
     public boolean checkStaff(String staffID){
         for (Staff staff : list){
             if(staff.getStaffID().equals(staffID))

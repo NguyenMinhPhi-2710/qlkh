@@ -80,7 +80,8 @@ public class AccountList {
         }
         finally{
             try {
-                br.close();
+                if (br!=null)
+                    br.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -102,7 +103,8 @@ public class AccountList {
             System.out.println("Cannot update data!!");
         } finally{
             try {
-                bw.close();
+                if (bw!=null)
+                    bw.close();
             } catch (Exception e) {
                 System.out.println("Cannot close the stream!!");
             }
@@ -132,8 +134,27 @@ public class AccountList {
 
     // add new account to list 
     public void addAccount(Account account){
-        list = addAccountFromFile(account, list);
-        System.out.println("Tai khoan da duoc them thanh cong!!");
+        boolean check = checkAccount(account);
+        if (check){
+            list = addAccountFromFile(account, list);
+            System.out.println("Tai khoan da duoc them thanh cong!!");
+        }
+        else
+            System.out.println("Them tai khoan khong thanh cong, vui long kiem tra lai");
+    }
+
+    public boolean checkAccount(Account account){
+        for (Account a: list){
+            if (account.getAccountName().equals(a.getAccountName())){
+                System.out.println("** Ten tai khoan da ton tai.");
+                return false;
+            }
+            if (account.getStaffID().equals(a.getStaffID())){
+                System.out.println("** Ma nhan vien da ton tai.");
+                return false;
+            }
+        }
+        return true;
     }
 
     // remove account from list
@@ -215,12 +236,16 @@ public class AccountList {
         return account;
     }
 
+
+
     // get the amount of account 
     public void getAmount(){
         System.out.println("Account amount: "+list.length);
     }
 
     public void displayList(){
+        System.out.printf("%-15s%-15s%-15s%-20s", "Ten tai khoan", "Mat khau", "Ma nhan vien", "Quyen tai khoan");
+        System.out.println();
         for(Account account : list){
             System.out.println(account);
         }

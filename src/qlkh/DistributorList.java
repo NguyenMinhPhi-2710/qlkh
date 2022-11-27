@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 
 public class DistributorList {
-    private static Distributors[] list;
+    private Distributors[] list;
 
     public DistributorList(){
         list= null;
@@ -44,46 +44,44 @@ public class DistributorList {
             System.out.println("Cannot read the file, using alternative solution instead.");
 
             Address address = new Address(1,"Duong 1", "P1", "Q1", "TP Mo Mo");
-            Distributors distributor = new Distributors("d01", "npp1", address, "02123");
+            Distributors distributor = new Distributors("d001", "npp1", address, "02123");
             list=addDistributorFromFile(distributor, list);
 
             address = new Address(2,"Duong 2", "P2", "Q2", "TP Mo Mo");
-            distributor = new Distributors("d02", "npp2", address, "02234");
+            distributor = new Distributors("d002", "npp2", address, "02234");
             list=addDistributorFromFile(distributor, list);
 
             address = new Address(3,"Duong 3", "P3", "Q3", "TP Mo Mo");
-            distributor = new Distributors("d03", "npp3", address, "02345");
+            distributor = new Distributors("d003", "npp3", address, "02345");
             list=addDistributorFromFile(distributor, list);
             
             address = new Address(4,"Duong 4", "P4", "Q4", "TP Mo Mo");
-            distributor = new Distributors("d04", "npp4", address, "02456");
+            distributor = new Distributors("d004", "npp4", address, "02456");
             list=addDistributorFromFile(distributor, list);
 
             address = new Address(5,"Duong 5", "P5", "Q5", "TP Mo Mo");
-            distributor = new Distributors("d05", "npp5", address, "02567");
+            distributor = new Distributors("d005", "npp5", address, "02567");
             list=addDistributorFromFile(distributor, list);
 
             address = new Address(6,"Duong 6", "P6", "Q6", "TP Mo Mo");
-            distributor = new Distributors("d06", "npp6", address, "02678");
+            distributor = new Distributors("d006", "npp6", address, "02678");
             list=addDistributorFromFile(distributor, list);
 
             address = new Address(7,"Duong 7", "P7", "Q7", "TP Mo Mo");
-            distributor = new Distributors("d07", "npp7", address, "02789");
+            distributor = new Distributors("d007", "npp7", address, "02789");
             list=addDistributorFromFile(distributor, list);
 
             address = new Address(8,"Duong 8", "P8", "Q8", "TP Mo Mo");
-            distributor = new Distributors("d08", "npp8", address, "02890");
+            distributor = new Distributors("d008", "npp8", address, "02890");
             list=addDistributorFromFile(distributor, list);
 
             address = new Address(9,"Duong 9", "P9", "Q9", "TP Mo Mo");
-            distributor = new Distributors("d09", "npp9", address, "02901");
+            distributor = new Distributors("d009", "npp9", address, "02901");
             list=addDistributorFromFile(distributor, list);
 
             address = new Address(10,"Duong 10", "P10", "Q10", "TP Mo Mo");
-            distributor = new Distributors("d10", "npp10", address, "02902");
+            distributor = new Distributors("d0010", "npp10", address, "02902");
             list=addDistributorFromFile(distributor, list);
-
-            updataFile(distributorsFile, distributorsAddressFile);
         }
         finally{
             try {
@@ -173,7 +171,7 @@ public class DistributorList {
 
     // override new data to file
     // MUST give this warning: "You MUST choose "Submit change & exit"(press _) to save all your changes"
-    public static void updataFile(File distributorsFile,File distributorsAddressFile){
+    public void updataFile(File distributorsFile,File distributorsAddressFile){
         BufferedWriter bw1 = null;
         BufferedWriter bw2 = null;
         try {

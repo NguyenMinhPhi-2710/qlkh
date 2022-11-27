@@ -60,8 +60,12 @@ public class Account {
         setAccountName();
         System.out.print("Nhap mat khau:");
         setPassword();
-        System.out.print("Nhap ma tai khoan:");
+        System.out.print("Nhap ma nhan vien cua tai khoan:");
         setStaffID();
+        while(!Tools.isStaffID(staffID)){
+            System.out.print("Nhap ma nhan vien theo dung dinh dang \"staff\" + 01 -> 99: ");
+            setStaffID();
+        }
     }
     public String toString(){
         return accountName +" " +password +" " +staffID +" " +roleID; 

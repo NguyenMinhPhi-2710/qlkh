@@ -61,14 +61,23 @@ public class Staff {
             System.out.print("Nhap ma nhan vien theo dung dinh dang \"staff\" + 01 -> 99: ");
             setStaffID();
         }
+    
 
         System.out.print("Nhap ten nhan vien: ");
         setStaffName();
         setAddress();
         System.out.print("Nhap so dien thoai:");
         setPhoneNumber();
-        System.out.print("Nhap chuc vu: ");
+        while(!Tools.isPhoneNumber(phoneNumber)){
+            System.out.print("So dien thoai phai co 10 chu so bat dau bang so 0:  ");
+            setPhoneNumber();
+        }
+        System.out.print("Nhap chuc vu (Quan ly/ Nhan vien): ");
         setPosition();
+        while(!Tools.isPosition(position)){
+            System.out.print("Chuc vu phai la \"Quan ly\" hoac \"Nhan vien\":  ");
+            setPosition();
+        }
     }
     public String toString(){
         return staffID +" " +staffName +" " +address +" " +phoneNumber +" " +position;
