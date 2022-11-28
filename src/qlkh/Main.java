@@ -180,17 +180,21 @@ public class Main {
                 break;
             }
             case 3: {
-                System.out.print("Nhap ten nhan vien can sua thong tin: ");
-                String staffName = Tools.scan.nextLine();
-                System.out.print("--Chinh sua nhan vien");
-                staffList.adjustStaff(staffName);
+                System.out.print("Nhap ma nhan vien can sua thong tin: ");
+                String staffID = Tools.scan.nextLine();
+                System.out.print("--Chinh sua nhan vien\n");
+                if(!staffList.adjustStaff(staffID)){
+                    System.out.println("Khong tim thay nhan vien.");
+                }
                 Tools.continute();
                 break;
             }
             case 4: {
                 System.out.print("Nhap ma nhan vien can tim: ");
                 String staffID = Tools.scan.nextLine();
-                staffList.findStaff(staffID);
+                if(!staffList.findStaff(staffID)){
+                    System.out.println("Khong tim thay nhan vien.");
+                }
                 Tools.continute();
                 break;
             }
@@ -202,7 +206,9 @@ public class Main {
             case 6: {
                 System.out.print("Nhap ten tai khoan can tim: ");
                 String accountID = Tools.scan.nextLine();
-                accountList.findAccount(accountID);
+                if(!accountList.findAccount(accountID)){
+                    System.out.println("Khong tim thay tai khoan.");
+                }
                 Tools.continute();
                 break;
             }

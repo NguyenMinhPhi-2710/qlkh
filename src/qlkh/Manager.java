@@ -542,9 +542,12 @@ public class Manager {
                     if (!i.getStatus()) {
                         check = true;
                         int index = findLinkByPosition(i.getID(), true);
-                        ContainLink e = linkList.get(index);
-                        e.enterInventory();
-                        linkList.set(index, e);
+                        ContainLink e = null;
+                        if (index!=-1){ 
+                            e=linkList.get(index);
+                            e.enterInventory();
+                            linkList.set(index, e);
+                        }
                     }
                 }
 

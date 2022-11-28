@@ -198,16 +198,18 @@ public class AccountList {
     }
 
     // find account in list, ADMIN ACCESS ONLY
-    public void findAccount(String accountName){
+    public boolean findAccount(String accountName){
         for (Account account : list){
             if(account.getAccountName().equals(accountName)){
                 System.out.println("Tai khoan tim thay!!");
                 System.out.println(account);
-                break;
+                return true;
             }
-            else 
-                System.out.println("Khong tim thay tai khoan\n");
+            else{
+                continue;
+            }
         }
+        return false;
     }
 
     // check the account type and recreate the account
