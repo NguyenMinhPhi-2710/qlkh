@@ -169,28 +169,31 @@ public class StaffList {
     }
 
     // change staff information
-    public void adjustStaff(String staffID){
+    public boolean adjustStaff(String staffID){
         for (Staff staff : list){
             if(staff.getStaffID().equalsIgnoreCase(staffID)){
                 staff.input();
-                break;
+                return true;
             }
             else
-                System.out.println("Khong the tim thay nhan vien.");
+                continue;
         }
+        return false;
     }
 
     // find staff
-    public void findStaff(String staffID){
+    public boolean findStaff(String staffID){
         for (Staff staff : list){
             if(staff.getStaffID().equals(staffID)){
                 System.out.println("Nhan vien tim thay!!");
                 System.out.println(staff);
-                break;
+                return true;
             }
             else
-                System.out.println("Khong the tim thay nhan vien.");
+                continue;
         }
+
+        return false;
     }
 
     // check staffID whether it exists or not
