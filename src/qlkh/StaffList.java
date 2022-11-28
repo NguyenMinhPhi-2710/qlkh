@@ -42,39 +42,39 @@ public class StaffList {
             System.out.println("Cannot read the file, using alternative solution instead.");
 
             Address address = new Address(1,"Duong 1", "P1", "Q1", "TP Mong Mo");
-            Staff staff = new Staff("staff1", "Nguyen Van A", address, "0123456789", "Quan ly");
+            Staff staff = new Staff("staff01", "Nguyen Van A", address, "0123456789", "Quan ly");
             list=addStaffFromFile(staff, list);
 
             address = new Address(2,"Duong 2", "P2", "Q2", "TP Mong Mo");
-            staff = new Staff("staff2", "Nguyen Van B", address, "0234567890", "Nhan vien");
+            staff = new Staff("staff02", "Nguyen Van B", address, "0234567890", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(3,"Duong 3", "P3", "Q3", "TP Mong Mo");
-            staff = new Staff("staff3", "Nguyen Van C", address, "0345678901", "Nhan vien");
+            staff = new Staff("staff03", "Nguyen Van C", address, "0345678901", "Nhan vien");
             list=addStaffFromFile(staff, list);
             
             address = new Address(4,"Duong 4", "P4", "Q4", "TP Mong Mo");
-            staff = new Staff("staff4", "Nguyen Van D", address, "0456789012", "Nhan vien");
+            staff = new Staff("staff04", "Nguyen Van D", address, "0456789012", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(5,"Duong 5", "P5", "Q5", "TP Mong Mo");
-            staff = new Staff("staff5", "Nguyen Van E", address, "0567890123", "Nhan vien");
+            staff = new Staff("staff05", "Nguyen Van E", address, "0567890123", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(6,"Duong 6", "P6", "Q6", "TP Mong Mo");
-            staff = new Staff("staff6", "Nguyen Van F", address, "0678901234", "Nhan vien");
+            staff = new Staff("staff06", "Nguyen Van F", address, "0678901234", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(7,"Duong 7", "P7", "Q7", "TP Mong Mo");
-            staff = new Staff("staff7", "Nguyen Van G", address, "0789012345", "Nhan vien");
+            staff = new Staff("staff07", "Nguyen Van G", address, "0789012345", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(8,"Duong 8", "P8", "Q8", "TP Mong Mo");
-            staff = new Staff("staff8", "Nguyen Van H", address, "0890123456", "Nhan vien");
+            staff = new Staff("staff08", "Nguyen Van H", address, "0890123456", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(9,"Duong 9", "P9", "Q9", "TP Mong Mo");
-            staff = new Staff("staff9", "Nguyen Van I", address, "0901234567", "Nhan vien");
+            staff = new Staff("staff09", "Nguyen Van I", address, "0901234567", "Nhan vien");
             list=addStaffFromFile(staff, list);
 
             address = new Address(10,"Duong 10", "P10", "Q10", "TP Mong Mo");
@@ -171,8 +171,9 @@ public class StaffList {
     // change staff information
     public void adjustStaff(String staffID){
         for (Staff staff : list){
-            if(staff.getStaffID().equals(staffID)){
+            if(staff.getStaffID().equalsIgnoreCase(staffID)){
                 staff.input();
+                break;
             }
             else
                 System.out.println("Khong the tim thay nhan vien.");
@@ -185,6 +186,7 @@ public class StaffList {
             if(staff.getStaffID().equals(staffID)){
                 System.out.println("Nhan vien tim thay!!");
                 System.out.println(staff);
+                break;
             }
             else
                 System.out.println("Khong the tim thay nhan vien.");

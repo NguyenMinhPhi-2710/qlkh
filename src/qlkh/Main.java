@@ -180,10 +180,10 @@ public class Main {
                 break;
             }
             case 3: {
-                System.out.print("Nhap ten nhan vien can sua thong tin: ");
-                String staffName = Tools.scan.nextLine();
+                System.out.print("Nhap ma nhan vien can sua thong tin: ");
+                String staffID = Tools.scan.nextLine();
                 System.out.print("--Chinh sua nhan vien");
-                staffList.adjustStaff(staffName);
+                staffList.adjustStaff(staffID);
                 Tools.continute();
                 break;
             }
